@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     loadFeatures();
     loadDestinations();
     loadPopularDeals();
+    loadRentalCars();
+    loadCruises();
     loadTestimonials();
     setupSearchForm();
     setupCarousel();
@@ -95,6 +97,114 @@ function loadPopularDeals() {
         `;
         container.appendChild(col);
     });
+}
+
+// Load Rental Cars (home: 3 cards + View more; rental-cars.html: all cards)
+function loadRentalCars() {
+    const homeContainer = document.getElementById('rentalCarsRow');
+    const pageContainer = document.getElementById('rentalCarsPageRow');
+    const container = homeContainer || pageContainer;
+    if (!container || typeof rentalCars === 'undefined') return;
+    container.innerHTML = '';
+    const carsToShow = pageContainer ? rentalCars : rentalCars.slice(0, 3);
+    carsToShow.forEach(car => {
+        const col = document.createElement('div');
+        col.className = 'col-lg-3 col-md-4 col-sm-6';
+        col.innerHTML = `
+            <div class="destination-card rental-card">
+                <img src="${car.image}" alt="${car.name}" loading="lazy">
+                <div class="destination-overlay overlay-with-btn">
+                    <div class="destination-name">${car.name}</div>
+                    <div class="destination-price">${car.pricePerDay} <span class="per-day">per day</span></div>
+                    <a href="tel:+15551234567" class="card-cta-btn btn btn-sm" aria-label="Call to book"><i class="bi bi-telephone-fill me-1"></i>Call to book</a>
+                </div>
+            </div>
+        `;
+        container.appendChild(col);
+    });
+    if (homeContainer) {
+        const viewMoreCol = document.createElement('div');
+        viewMoreCol.className = 'col-lg-3 col-md-4 col-sm-6 d-flex align-items-center justify-content-center';
+        viewMoreCol.innerHTML = `
+            <a href="rental-cars.html" class="view-more-link">
+                <i class="bi bi-car-front-fill"></i>
+                <span>View more</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        `;
+        container.appendChild(viewMoreCol);
+    }
+}
+
+// Load Cruises (home: 3 cards + View more; cruise.html: all cards)
+function loadCruises() {
+    const homeContainer = document.getElementById('cruisesRow');
+    const pageContainer = document.getElementById('cruisesPageRow');
+    const container = homeContainer || pageContainer;
+    if (!container || typeof cruises === 'undefined') return;
+    container.innerHTML = '';
+    const cruisesToShow = pageContainer ? cruises : cruises.slice(0, 3);
+    cruisesToShow.forEach(cruise => {
+        const col = document.createElement('div');
+        col.className = 'col-lg-3 col-md-4 col-sm-6';
+        col.innerHTML = `
+            <div class="destination-card cruise-card">
+                <img src="${cruise.image}" alt="${cruise.name}" loading="lazy">
+                <div class="destination-overlay overlay-with-btn">
+                    <div class="destination-name">${cruise.name}</div>
+                    <div class="cruise-meta">${cruise.price} &bull; ${cruise.nights} nights &bull; ${cruise.days} days</div>
+                    <button type="button" class="card-cta-btn btn btn-sm cruise-view-more-btn">View more</button>
+                </div>
+            </div>
+        `;
+        const btn = col.querySelector('.cruise-view-more-btn');
+        if (btn) btn.addEventListener('click', function() { openCruiseModal(cruise); });
+        container.appendChild(col);
+    });
+    if (homeContainer) {
+        const viewMoreCol = document.createElement('div');
+        viewMoreCol.className = 'col-lg-3 col-md-4 col-sm-6 d-flex align-items-center justify-content-center';
+        viewMoreCol.innerHTML = `
+            <a href="cruise.html" class="view-more-link">
+                <i class="bi bi-water"></i>
+                <span>View more</span>
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        `;
+        container.appendChild(viewMoreCol);
+    }
+}
+
+// Open cruise detail modal and populate with cruise data
+function openCruiseModal(cruise) {
+    const modalEl = document.getElementById('cruiseDetailModal');
+    if (!modalEl || !cruise) return;
+    document.getElementById('cruiseModalImage').src = cruise.image;
+    document.getElementById('cruiseModalImage').alt = cruise.name;
+    document.getElementById('cruiseModalName').textContent = cruise.name;
+    document.getElementById('cruiseModalCompany').textContent = cruise.companyName || '—';
+    document.getElementById('cruiseModalPrice').textContent = 'Starting from ' + (cruise.price || '—');
+    document.getElementById('cruiseModalDeparting').textContent = cruise.departingFrom || '—';
+    const portsEl = document.getElementById('cruiseModalPorts');
+    const portsRow = document.getElementById('cruiseModalPortsRow');
+    if (cruise.portsOfCall && cruise.portsOfCall.length > 0) {
+        portsEl.textContent = cruise.portsOfCall.join(', ');
+        portsRow.style.display = '';
+    } else {
+        portsEl.textContent = '—';
+        portsRow.style.display = '';
+    }
+    const datesEl = document.getElementById('cruiseModalDates');
+    const datesRow = document.getElementById('cruiseModalDatesRow');
+    if (cruise.sailingDates && cruise.sailingDates.length > 0) {
+        datesEl.textContent = cruise.sailingDates.join(', ');
+        datesRow.style.display = '';
+    } else {
+        datesEl.textContent = '—';
+        datesRow.style.display = '';
+    }
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
 }
 
 // Load Testimonials (slider)
@@ -346,6 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
    
     setupScrollToTop();
+    setupMobileCallBar();
 });
 
 
@@ -368,5 +479,19 @@ function setupScrollToTop() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+}
+
+// Mobile: show/hide fixed Call to Expert bar on home page when user scrolls
+function setupMobileCallBar() {
+    const mobileCallBar = document.getElementById('mobileCallBar');
+    if (!mobileCallBar) return;
+    
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 200) {
+            mobileCallBar.classList.add('show');
+        } else {
+            mobileCallBar.classList.remove('show');
+        }
     });
 }

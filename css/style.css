@@ -25,22 +25,74 @@ body {
 /* Header Styles */
 .navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    background-color: rgba(33, 37, 41, 0.95) !important;
+    background-color: #ffffff !important;
 }
 
 .navbar-brand {
     font-size: 1.5rem;
-    color: #fff !important;
+    color: #000000 !important;
 }
 
 .nav-link {
     font-weight: 500;
+    color: #000000 !important;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--secondary-color) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar Call / Contact action */
+.nav-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    background: var(--button-primary) !important;
+    color: var(--button-secondary) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-call-btn:hover {
+    background: var(--secondary-color) !important;
+    color: var(--button-primary) !important;
+    transform: translateY(-1px);
+}
+
+.nav-call-btn .nav-call-number {
+    margin-left: 4px;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+@media (max-width: 767px) {
+    .nav-item.ms-lg-3 {
+        margin-top: 12px;
+        margin-left: 0 !important;
+        padding-top: 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .nav-call-btn {
+        justify-content: center;
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
 }
 
 .hero-section {
@@ -61,7 +113,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(174, 222, 206, 0.5);
+    background: rgba(0, 0, 0, 0.45);
     z-index: 1;
 }
 
@@ -76,15 +128,15 @@ body {
 }
 
 .hero-title {
-    color: var(--button-primary);
+    color: #ffffff;
     font-size: 4.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-subtitle {
-    color: var(--button-primary);
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.2rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .search-card {
@@ -754,9 +806,197 @@ body {
     font-weight: 600;
 }
 
-/* Mobile Horizontal Scroll for Destinations */
+.destination-price .per-day {
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Rental / Cruise cards: overlay with CTA button */
+.overlay-with-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.card-cta-btn {
+    margin-top: 4px;
+    background: var(--button-primary) !important;
+    color: var(--button-secondary) !important;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.card-cta-btn:hover {
+    background: var(--secondary-color) !important;
+    color: var(--button-primary) !important;
+    transform: translateY(-1px);
+}
+
+.cruise-meta {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2px;
+}
+
+/* View more link (text + icon only, no card) */
+.view-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.view-more-link:hover {
+    color: var(--secondary-color);
+    gap: 10px;
+}
+
+.view-more-link .bi:first-child {
+    font-size: 1.5rem;
+}
+
+.view-more-link .bi-arrow-right {
+    font-size: 1.1rem;
+}
+
+/* CTA section on rental/cruise pages */
+.cta-section {
+    background: var(--light-bg);
+    border-radius: 16px;
+}
+
+.cta-call-btn {
+    background: var(--button-primary) !important;
+    color: var(--button-secondary) !important;
+    border: none;
+    padding: 14px 28px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-call-btn:hover {
+    background: var(--secondary-color) !important;
+    color: var(--button-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* Cruise detail modal */
+.cruise-modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.cruise-modal-header {
+    border-bottom: none;
+    padding: 1rem 1.25rem 0;
+    position: relative;
+    min-height: auto;
+    z-index: 10;
+    background: #fff;
+}
+
+.cruise-modal-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    margin: 0;
+    padding: 0.5rem;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    z-index: 11;
+}
+
+.cruise-modal-close:hover {
+    opacity: 1;
+}
+
+.cruise-modal-body {
+    padding: 0 1.5rem 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.cruise-modal-image-wrap {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    background: #f0f0f0;
+}
+
+.cruise-modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cruise-modal-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.25rem;
+}
+
+.cruise-modal-company {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cruise-modal-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.cruise-modal-detail-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.cruise-modal-detail-row strong {
+    min-width: 120px;
+    color: var(--dark-color);
+}
+
+.cruise-modal-call-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--button-primary) !important;
+    color: var(--button-secondary) !important;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.cruise-modal-call-btn:hover {
+    background: var(--secondary-color) !important;
+    color: var(--button-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* Mobile Horizontal Scroll for Destinations only (rental & cruise use vertical layout) */
 @media (max-width: 768px) {
-    .destinations-wrapper {
+    .destinations-section .destinations-wrapper {
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
@@ -767,40 +1007,46 @@ body {
         padding-right: 15px;
     }
     
-    .destinations-wrapper::-webkit-scrollbar {
+    .destinations-section .destinations-wrapper::-webkit-scrollbar {
         height: 6px;
     }
     
-    .destinations-wrapper::-webkit-scrollbar-track {
+    .destinations-section .destinations-wrapper::-webkit-scrollbar-track {
         background: #e9ecef;
         border-radius: 10px;
     }
     
-    .destinations-wrapper::-webkit-scrollbar-thumb {
+    .destinations-section .destinations-wrapper::-webkit-scrollbar-thumb {
         background: var(--primary-color);
         border-radius: 10px;
     }
     
-    .destinations-wrapper::-webkit-scrollbar-thumb:hover {
+    .destinations-section .destinations-wrapper::-webkit-scrollbar-thumb:hover {
         background: var(--secondary-color);
     }
     
-    #destinationsRow {
+    .destinations-section #destinationsRow {
         display: flex;
         flex-wrap: nowrap;
         gap: 1rem;
         margin: 0;
     }
     
-    #destinationsRow > div {
+    .destinations-section #destinationsRow > div {
         flex: 0 0 auto;
         width: 280px;
         max-width: 280px;
     }
     
-    .destination-card {
+    .destinations-section .destination-card {
         height: 280px;
         min-width: 280px;
+    }
+    
+    /* Rental cars & cruise: vertical layout (normal row wrap) on home page */
+    .rental-cars-section .destination-card,
+    .cruise-section .destination-card {
+        min-width: 0;
     }
 }
 
@@ -1205,16 +1451,122 @@ footer hr.bg-secondary {
 
 /* Page Headers */
 .page-header {
-    background: var(--primary-color);
+    position: relative;
     padding: 100px 0 60px;
     color: var(--button-primary);
     text-align: center;
+    background-color: var(--primary-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header-rental,
+.page-header-cruise,
+.page-header-about,
+.page-header-privacy {
+    color: #ffffff;
+}
+
+.page-header-rental .lead,
+.page-header-cruise .lead,
+.page-header-about .lead,
+.page-header-privacy .lead {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.page-header-privacy {
+    background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.page-header-about {
+    background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.page-header-rental {
+    background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+.page-header-cruise {
+    background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
 }
 
 .page-header h1 {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.page-header .lead {
+    margin-bottom: 1.5rem;
+}
+
+.page-header-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--button-primary);
+    color: var(--button-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.page-header-cta:hover {
+    background: var(--secondary-color);
+    color: var(--button-primary);
+    transform: translateY(-2px);
+}
+
+/* Intro text below page hero (rental cars / cruise pages) */
+.section-intro {
+    padding: 48px 0 56px;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section-intro-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.section-intro-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.section-intro-text {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #495057;
+    margin-bottom: 0;
+}
+
+.section-intro-text strong {
+    color: var(--dark-color);
+    font-weight: 600;
 }
 
 .page-content {
@@ -1277,6 +1629,23 @@ footer hr.bg-secondary {
     
     .page-header h1 {
         font-size: 2rem;
+    }
+    
+    .page-header-cta {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    
+    .section-intro {
+        padding: 36px 0 44px;
+    }
+    
+    .section-intro-title {
+        font-size: 1.2rem;
+    }
+    
+    .section-intro-text {
+        font-size: 1rem;
     }
 }
 
@@ -1354,6 +1723,59 @@ html {
 
 .scroll-to-top:active {
     transform: translateY(-2px);
+}
+
+/* Mobile: Fixed Call to Expert bar (home page, shows on scroll) */
+.mobile-call-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 14px 16px;
+    background: var(--button-primary);
+    color: var(--button-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-call-bar.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-call-bar:hover {
+    color: var(--button-secondary);
+    background: var(--secondary-color);
+}
+
+.mobile-call-bar .mobile-call-number {
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+    .mobile-call-bar {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .mobile-call-bar {
+        display: flex;
+    }
+    .scroll-to-top.show {
+        bottom: 70px;
+    }
 }
 
 /* Responsive Scroll Button */

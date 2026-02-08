@@ -127,6 +127,26 @@ const popularDeals = [
   }
 ];
 
+// Rental Cars Data (home page: first 3; rental-cars.html: all)
+const rentalCars = [
+  { name: 'Economy Sedan', pricePerDay: '$45', image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+  { name: 'SUV Premium', pricePerDay: '$89', image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+  { name: 'Luxury Convertible', pricePerDay: '$159', image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+  { name: 'Compact Hatchback', pricePerDay: '$35', image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+  { name: 'Minivan', pricePerDay: '$75', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+  { name: 'Sports Car', pricePerDay: '$199', image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80' },
+];
+
+// Cruises Data (home page: first 3; cruise.html: all)
+const cruises = [
+  { name: 'Canada New England Cruise', price: '$1,299', nights: 7, days: 8, image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Royal Caribbean', departingFrom: 'Vancouver', portsOfCall: ['Seattle', 'Victoria', 'San Francisco', 'Astoria'], sailingDates: ['May 15, 2025', 'Jun 22, 2025', 'Jul 10, 2025'] },
+  { name: 'Caribbean Island Hopper', price: '$899', nights: 5, days: 6, image: 'https://images.unsplash.com/photo-1567894340315-735d7c361db0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Carnival Cruise Line', departingFrom: 'Miami', portsOfCall: ['Cozumel', 'Grand Cayman', 'Ocho Rios'], sailingDates: ['Mar 8, 2025', 'Apr 12, 2025', 'May 20, 2025'] },
+  { name: 'Mediterranean Explorer', price: '$1,599', nights: 10, days: 11, image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Norwegian Cruise Line', departingFrom: 'Barcelona', portsOfCall: ['Nice', 'Rome', 'Naples', 'Palma de Mallorca', 'Valencia'], sailingDates: ['Jun 5, 2025', 'Jul 18, 2025', 'Aug 2, 2025'] },
+  { name: 'Alaska Glacier Cruise', price: '$1,899', nights: 9, days: 10, image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Holland America Line', departingFrom: 'Seattle', portsOfCall: ['Juneau', 'Skagway', 'Glacier Bay', 'Ketchikan', 'Victoria'], sailingDates: ['May 25, 2025', 'Jun 30, 2025', 'Jul 14, 2025'] },
+  { name: 'Greek Islands Voyage', price: '$1,449', nights: 7, days: 8, image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Celebrity Cruises', departingFrom: 'Athens', portsOfCall: ['Mykonos', 'Santorini', 'Crete', 'Rhodes', 'Kusadasi'], sailingDates: ['Apr 10, 2025', 'May 8, 2025', 'Sep 12, 2025'] },
+  { name: 'Northern Europe Fjords', price: '$2,099', nights: 12, days: 13, image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', companyName: 'Princess Cruises', departingFrom: 'Copenhagen', portsOfCall: ['Oslo', 'Bergen', 'Flam', 'Geiranger', 'Stockholm', 'Tallinn'], sailingDates: ['Jun 15, 2025', 'Jul 20, 2025', 'Aug 10, 2025'] },
+];
+
 // Testimonials Data
 const testimonials = [
   {

@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <header class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <i class="bi bi-airplane-fill me-2"></i>TravelEase
@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Home</a>
                     </li>
@@ -27,10 +27,23 @@
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="rental-cars.html">Rental Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cruise.html">Cruises</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="privacy.html">Privacy Policy</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-call-btn btn btn-sm" href="tel:+15551234567" aria-label="Call an expert">
+                            <i class="bi bi-telephone-fill me-1"></i>
+                            <span class="nav-call-text">Call an expert</span>
+                            <span class="nav-call-number">+1 (555) 123-4567</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -190,6 +203,70 @@
         </div>
     </section>
 
+    <!-- Rental Cars Section -->
+    <section class="rental-cars-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Rental Cars</h2>
+                <p class="text-muted">Drive your way with our best car rental deals</p>
+            </div>
+            <div class="destinations-wrapper">
+                <div class="row g-4" id="rentalCarsRow">
+                    <!-- Rental cars populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cruise Section -->
+    <section class="cruise-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Cruises</h2>
+                <p class="text-muted">Set sail to unforgettable destinations</p>
+            </div>
+            <div class="destinations-wrapper">
+                <div class="row g-4" id="cruisesRow">
+                    <!-- Cruises populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cruise Detail Modal -->
+    <div class="modal fade" id="cruiseDetailModal" tabindex="-1" aria-labelledby="cruiseDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content cruise-modal-content">
+                <div class="modal-header cruise-modal-header">
+                    <button type="button" class="btn-close cruise-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body cruise-modal-body">
+                    <div class="cruise-modal-image-wrap">
+                        <img id="cruiseModalImage" src="" alt="" class="cruise-modal-image">
+                    </div>
+                    <h3 id="cruiseModalName" class="cruise-modal-name"></h3>
+                    <p id="cruiseModalCompany" class="cruise-modal-company text-muted mb-3"></p>
+                    <p id="cruiseModalPrice" class="cruise-modal-price mb-3"></p>
+                    <div class="cruise-modal-detail-row">
+                        <strong>Departing From</strong>
+                        <span id="cruiseModalDeparting"></span>
+                    </div>
+                    <div class="cruise-modal-detail-row" id="cruiseModalPortsRow">
+                        <strong>Ports of Call</strong>
+                        <span id="cruiseModalPorts"></span>
+                    </div>
+                    <div class="cruise-modal-detail-row" id="cruiseModalDatesRow">
+                        <strong>Sailing Dates</strong>
+                        <span id="cruiseModalDates"></span>
+                    </div>
+                    <a href="tel:+15551234567" class="btn cruise-modal-call-btn mt-4">
+                        <i class="bi bi-telephone-fill me-2"></i>Call to book now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Testimonials Section -->
     <section class="testimonials-section py-5 bg-light">
         <div class="container">
@@ -241,10 +318,8 @@
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold mb-3">Services</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted text-decoration-none">Flight Booking</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Hotel Reservations</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Travel Packages</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Travel Insurance</a></li>
+                        <li><a href="rental-cars.html" class="text-muted text-decoration-none">Rental Cars</a></li>
+                        <li><a href="cruise.html" class="text-muted text-decoration-none">Cruises</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -262,6 +337,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile: Fixed Call to Expert bar (shows on scroll) -->
+    <a id="mobileCallBar" href="tel:+15551234567" class="mobile-call-bar" aria-label="Call an expert">
+        <i class="bi bi-telephone-fill me-2"></i>
+        <span class="mobile-call-label">Call an expert</span>
+        <span class="mobile-call-number">+1 (555) 123-4567</span>
+    </a>
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top">
